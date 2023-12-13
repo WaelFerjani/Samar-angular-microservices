@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListAbonnementComponent } from './list-abonnement.component';
+import { ListAbonnementComponent } from './list-stock.component';
 
 describe('ListAbonnementComponent', () => {
   let component: ListAbonnementComponent;

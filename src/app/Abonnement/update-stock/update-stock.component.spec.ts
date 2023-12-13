@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateAbonnementComponent } from './update-abonnement.component';
+import { UpdateAbonnementComponent } from './update-stock.component';
 
 describe('UpdateAbonnementComponent', () => {
   let component: UpdateAbonnementComponent;

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddAbonnementComponent } from './add-abonnement.component';
+import { AddAbonnementComponent } from './add-stock.component';
 
 describe('AddAbonnementComponent', () => {
   let component: AddAbonnementComponent;

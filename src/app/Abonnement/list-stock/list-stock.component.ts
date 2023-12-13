@@ -1,36 +1,37 @@
 import { Component, Input } from '@angular/core';
 import { Abonnement } from 'src/app/models/Abonnement';
-import { AbonnementService } from 'src/app/services/abonnement.service';
+import { Stock } from 'src/app/models/Stock';
+import {  StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-list-abonnement',
-  templateUrl: './list-abonnement.component.html',
-  styleUrls: ['./list-abonnement.component.scss']
+  templateUrl: './list-stock.component.html',
+  styleUrls: ['./list-stock.component.scss']
 })
 export class ListAbonnementComponent {
   @Input() foyer: Abonnement = new Abonnement();
 
 
-  displayedFoyers: Abonnement[] = [];
-  foyers: Abonnement[] = [];
+  displayedFoyers: Stock[] = [];
+  foyers: Stock[] = [];
   search = '';
-  usertoSelected!: Abonnement;
+  usertoSelected!: Stock;
   show = false;
 
-  constructor(private abonnementService: AbonnementService) {}
+  constructor(private stockService: StockService) {}
 
   ngOnInit(): void {
-    this.abonnementService.getEmprunt().subscribe((d) => {
+    this.stockService.getEmprunt().subscribe((d) => {
       this.foyers = d;
       this.displayedFoyers = d; // Assign the data to displayedFoyers as well
     });
   }
   deleteFoyerById(id: number): void {
 
-      this.abonnementService.deleteEmprunt(id).subscribe(
+      this.stockService.deleteEmprunt(id).subscribe(
         () => {
           console.log('Emprunt deleted successfully');
-          this.foyers = this.foyers.filter((foyer) => foyer.id !== id);
+          this.foyers = this.foyers.filter((foyer) => foyer.idstock !== id);
           this.displayedFoyers = this.foyers.slice(); // Update displayedFoyers as well
           console.log('displayedFoyers after deletion:', this.displayedFoyers);
         
@@ -46,7 +47,7 @@ export class ListAbonnementComponent {
   
   }
 
-  update(foyer: Abonnement) {
+  update(foyer: Stock) {
     console.log('Selected Emprunt:', foyer);
     this.usertoSelected = foyer;
     this.show = true;
@@ -54,7 +55,7 @@ export class ListAbonnementComponent {
   changeTab(e: any) {
     this.show = false;
     for (let i = 0; i < this.foyers.length; i++) {
-      if (this.foyers[i].id == e.id) {
+      if (this.foyers[i].idstock == e.id) {
         this.foyers[i] = e;
       }
     }

@@ -29,9 +29,9 @@ import {DeleteEmpruntComponent} from "./Emprunt/delete-emprunt/delete-emprunt.co
 import {AddEmpruntComponent} from "./Emprunt/add-emprunt/add-emprunt.component";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import { AddAbonnementComponent } from './Abonnement/add-abonnement/add-abonnement.component';
-import { ListAbonnementComponent } from './Abonnement/list-abonnement/list-abonnement.component';
-import { UpdateAbonnementComponent } from './Abonnement/update-abonnement/update-abonnement.component';
+import { AddAbonnementComponent } from './Abonnement/add-stock/add-stock.component';
+import { ListAbonnementComponent } from './Abonnement/list-stock/list-stock.component';
+import { UpdateAbonnementComponent } from './Abonnement/update-stock/update-stock.component';
 
 @NgModule({
   declarations: [

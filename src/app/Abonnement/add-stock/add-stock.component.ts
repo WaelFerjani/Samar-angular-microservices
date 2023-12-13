@@ -2,20 +2,21 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Abonnement } from 'src/app/models/Abonnement';
-import { AbonnementService } from 'src/app/services/abonnement.service';
+import { Stock } from 'src/app/models/Stock';
+import { StockService } from 'src/app/services/stock.service';
 
 @Component({
   selector: 'app-add-abonnement',
-  templateUrl: './add-abonnement.component.html',
-  styleUrls: ['./add-abonnement.component.scss']
+  templateUrl: './add-stock.component.html',
+  styleUrls: ['./add-stock.component.scss']
 })
 export class AddAbonnementComponent {
-  abonnement: Abonnement = new Abonnement();
+  stock: Stock = new Stock();
 
 
 
   constructor(
-    private abonnementService: AbonnementService,
+    private stockService: StockService,
 
     private router: Router,
   ) { }
@@ -25,12 +26,12 @@ export class AddAbonnementComponent {
 
   saveUser(): void {
     
-      this.abonnementService.addEmprunt(this.abonnement).subscribe(
+      this.stockService.addEmprunt(this.stock).subscribe(
         (response) => {
-          this.router.navigate(['/Abonnement']);
+          this.router.navigate(['/Stock']);
         },
         (error) => {
-          console.error('Failed to add and associate with university and bloc:', error);
+          console.error('error:', error);
         }
       );
     
